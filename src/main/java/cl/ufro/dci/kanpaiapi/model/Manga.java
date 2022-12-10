@@ -1,12 +1,14 @@
 package cl.ufro.dci.kanpaiapi.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Date;
+import java.util.List;
 
 @Entity
 @Data
@@ -15,7 +17,39 @@ import javax.persistence.Id;
 public class Manga {
 
     @Id
-    @GeneratedValue
-    private Long idManga;
-    private String name;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long manId;
+    private String manName;
+    @Column(columnDefinition = "LONGTEXT")
+    private String manSynopsis;
+    @Enumerated(EnumType.STRING)
+    private Demography manDemography;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date manRealease;
+
+    private State manStatus;
+
+    @ElementCollection
+    @Enumerated(EnumType.STRING)
+    private List<Genre> manGenre;
+
+    private String manPath;
+
+    @OneToMany(targetEntity = Chapter.class, mappedBy = "chaManga", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private List<Chapter> manChapters;
+
+    public enum Demography {
+        Seinen,
+        Shoujo,
+        Shounen,
+        Josei,
+        Kodomo
+    }
+
+    public enum State {
+        Emission,
+        Finish,
+        Hiatus
+    }
 }
