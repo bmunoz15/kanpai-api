@@ -1,0 +1,48 @@
+[
+  {
+    "manName": "Hitori Bocchi no Marumaru Seikatsu",
+    "manPath": "src/main/resources/static/manga/Hitori Bocchi no Marumaru Seikatsu",
+    "manSynopsis": "Hitori Bocchi sufre de ansiedad social extrema, ella no es buena para hablar con la gente, toma medidas muy extremas, es sorprendentemente hábil para evitar a las personas, le dan calambres cuando se esfuerza demasiado, se siente llena de sí misma cuando está sola, vomita cuando se expone a la tensión extrema y, a menudo viene con planes. Ahora ella está entrando en la escuela media y su único amigo, Yawara Kai, asiste a una escuela diferente. Esto deja a Bocchi sola, rodeada de nuevos compañeros con los que debe hacer amigos antes de que Kai vuelva a hablar con ella de nuevo.",
+    "manDemography": "Shounen",
+    "manRealease": "2013-09-27",
+    "manGenre": ["Recuentos_de_la_vida","Comedia","Vida_Escolar"],
+    "manStatus": "Finish",
+    "manChapters": []
+  },
+  {
+    "manName": "Fullmetal Alchemist",
+    "manPath": "src/main/resources/static/manga/Fullmetal Alchemist",
+    "manSynopsis":"La historia se centra en dos hermanos, Edward Elric y Alphonse Elric que rompieron el mayor tabú de la alquimia, la trasmutación humana al tratar de revivir a su fallecida madre; en consecuencia Edward pierde su pierna izquierda y Alphonse pierde todo su cuerpo, Edward para salvar a su hermano sella su alma en una gran armadura de hierro a cambio de su brazo derecho; ahora los dos con un nuevo objetivo buscan desesperadamente la piedra filosofal para poder regresar sus cuerpos a la normalidad...",
+    "manDemography": "Shounen",
+    "manRealease": "2001-07-12",
+    "manGenre": ["Accion","Aventura","Comedia","Drama","Supernatural","Magia"],
+    "manStatus": "Finish",
+    "manChapters": []
+  },
+  {
+    "manName": "Mob Psycho 100",
+    "manPath": "src/main/resources/static/manga/Mob Psycho 100",
+    "manSynopsis":"Kageyama Shigeo (también conocido como \"Mob\") Está en octavo grado con habilidades psíquicas. Puede doblar cucharas y levantar objetos con su mente desde una edad temprana, pero poco a poco comenzó a retener el uso de sus habilidades en público debido a la atención negativa siguió recibiendo. Ahora, lo único que quiere es llegar a ser amigos con una chica de su clase, Tsubomi. Con su \"mentor\" psíquica (que no tiene poderes psíquicos), continúa su vida de cada día, tratando de darse cuenta de su propósito en la vida.",
+    "manDemography": "Shounen",
+    "manRealease": "2012-04-18",
+    "manGenre": ["Accion","Aventura","Recuentos_de_la_vida","Comedia","Drama","Supernatural","Vida_Escolar","Magia","Psicologico"],
+    "manStatus": "Finish",
+    "manChapters": []
+  },
+  {
+    "manName": "Dororo",
+    "manPath": "src/main/resources/static/manga/Dororo",
+    "manSynopsis":"Daigo Kagemitsu, quien trabaja para un general samurai en el Período Sengoku (guerras feudales), promete ofrecer partes del cuerpo de su bebé no nacido a 48 demonios a cambio del completo dominio del país. Cuando el niño nace, Daigo lo deja en un río, esperando que el chico muera. Un amable sabio, sin embargo, lo encuentra y adopta. El sabio equipa a su pobre hijo con prótesis. El tiempo pasa y el bebé crece en un niño que hace llamarse Hyakkimaru. Cada vez que Hyakkimaru elimina a un demonio, recupera una de las partes de su cuerpo. Hyakkimaru rescata a un niño ladrón llamado Dororo de un grupo de hombres a los cuales el joven intentó robar. Juntos viajan a través del país en busca de los demonios que poseen las partes de Hyakkimaru. A través de sus viajes, se enfrentarán a una serie de monstruos y fantasmas.",
+    "manDemography": "Shounen",
+    "manRealease": "2001-11-30",
+    "manGenre": ["Accion","Aventura","Horror","Historia","Supernatural","Tragedia"],
+    "manStatus": "Finish",
+    "manChapters": []
+  },
+  {
+    "manName": "dodoro 2."
+  },
+  {
+    "manName": "hitori2.0"
+  }
+]
