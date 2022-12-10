@@ -15,19 +15,27 @@ public class MangaController {
     MangaService service;
 
     @PostMapping()
-    public ResponseEntity<Manga> createManga(@RequestBody Manga manga){
+    public ResponseEntity<Manga> createManga(@RequestBody Manga manga) {
         return ResponseEntity.status(200).body(service.createManga(manga));
     }
+
     @GetMapping()
-    public ResponseEntity<List<Manga>> getAllManga(){
+    public ResponseEntity<List<Manga>> getAllManga() {
         return ResponseEntity.status(200).body(service.getAllMangas());
     }
+
     @GetMapping("/{id}")
-    public ResponseEntity<Manga> getMangabyId(@PathVariable long id){
+    public ResponseEntity<Manga> getMangabyId(@PathVariable long id) {
         return ResponseEntity.status(200).body(service.getMangabyID(id));
     }
+
+    @GetMapping("search/{name}")
+    public ResponseEntity<List<Manga>> getMangabyName(@PathVariable String name) {
+        return ResponseEntity.status(200).body(service.searchMangabyName(name));
+    }
+
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteManga(@PathVariable long id){
+    public ResponseEntity<String> deleteManga(@PathVariable long id) {
         return ResponseEntity.status(200).body(service.deleteManga(id));
     }
 
