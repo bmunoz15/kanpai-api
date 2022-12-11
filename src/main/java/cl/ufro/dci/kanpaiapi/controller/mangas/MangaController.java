@@ -1,4 +1,4 @@
-package cl.ufro.dci.kanpaiapi.controller;
+package cl.ufro.dci.kanpaiapi.controller.mangas;
 
 import cl.ufro.dci.kanpaiapi.model.Manga;
 import cl.ufro.dci.kanpaiapi.service.MangaService;
