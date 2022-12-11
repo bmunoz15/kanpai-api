@@ -2,6 +2,7 @@ package cl.ufro.dci.kanpaiapi.service;
 
 import cl.ufro.dci.kanpaiapi.model.Genre;
 import cl.ufro.dci.kanpaiapi.model.Manga;
+import cl.ufro.dci.kanpaiapi.model.Publisher;
 import cl.ufro.dci.kanpaiapi.repository.MangaRepository;
 import cl.ufro.dci.kanpaiapi.utils.UtilSearch;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,13 @@ public class MangaService {
     MangaRepository repository;
 
     public Manga createManga(Manga manga) {
+        return repository.save(manga);
+    }
+
+    public Manga updateManga(Manga manga) {
+
+        Manga mangaStored = repository.findById(manga.getManId()).orElseThrow();
+
         return repository.save(manga);
     }
 
