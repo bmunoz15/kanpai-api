@@ -11,14 +11,11 @@ import java.util.List;
 @Data
 @RequiredArgsConstructor
 @AllArgsConstructor
-public class Editorial {
+public class Publisher {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long ediId;
+    private Long pubId;
 
-    @OneToMany(mappedBy = "manEditorial")
-    private List<Manga> ediManga;
-
-    @OneToMany(mappedBy = "mankEditorial")
-    private List<Mangaka> ediMangaka;
+    @OneToMany(mappedBy = "manPublisher")
+    private List<Manga> pubMangas;
 }
