@@ -16,6 +16,15 @@ public class Publisher {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long pubId;
 
+    private String pubDescription;
+    private String pubName;
+    private Type pubType;
+
     @OneToMany(mappedBy = "manPublisher")
     private List<Manga> pubMangas;
+
+    private enum Type {
+        Editorial,
+        Mangaka
+    }
 }

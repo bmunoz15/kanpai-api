@@ -24,8 +24,8 @@ public class Manga {
     private String manSynopsis;
     @Enumerated(EnumType.STRING)
     private Demography manDemography;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date manRealease;
+
+    private String manRealease;
 
     private State manStatus;
 
