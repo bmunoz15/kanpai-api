@@ -35,6 +35,9 @@ public class Manga {
 
     private String manPath;
 
+    @ManyToOne()
+    private Publisher manPublisher;
+
     @OneToMany(targetEntity = Chapter.class, mappedBy = "chaManga", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonManagedReference
     private List<Chapter> manChapters;

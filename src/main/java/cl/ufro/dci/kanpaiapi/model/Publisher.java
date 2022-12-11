@@ -4,10 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
@@ -17,4 +15,10 @@ public class Editorial {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long ediId;
+
+    @OneToMany(mappedBy = "manEditorial")
+    private List<Manga> ediManga;
+
+    @OneToMany(mappedBy = "mankEditorial")
+    private List<Mangaka> ediMangaka;
 }
