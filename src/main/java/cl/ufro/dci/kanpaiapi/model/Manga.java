@@ -24,8 +24,8 @@ public class Manga {
     private String manSynopsis;
     @Enumerated(EnumType.STRING)
     private Demography manDemography;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date manRealease;
+
+    private String manRealease;
 
     private State manStatus;
 
@@ -34,6 +34,9 @@ public class Manga {
     private List<Genre> manGenre;
 
     private String manPath;
+
+    @ManyToOne()
+    private Publisher manPublisher;
 
     @OneToMany(targetEntity = Chapter.class, mappedBy = "chaManga", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonManagedReference
