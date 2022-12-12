@@ -1,6 +1,8 @@
 package cl.ufro.dci.kanpaiapi.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -37,8 +39,12 @@ public class Manga {
 
     private String manPath;
 
-    @ManyToOne()
+    @ManyToOne(fetch = FetchType.EAGER)
     private Publisher manPublisher;
+
+    @ManyToOne()
+    @JsonIgnore
+    private Reader manReader;
 
     @OneToMany(targetEntity = Chapter.class, mappedBy = "chaManga", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonManagedReference
