@@ -5,6 +5,8 @@ import cl.ufro.dci.kanpaiapi.repository.PublisherRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PublisherService {
     @Autowired
@@ -18,6 +20,9 @@ public class PublisherService {
         return repository.findById(id).orElseThrow();
     }
 
+    public List<Publisher> getAllPublisher(){
+        return  repository.findAll();
+    }
     public Publisher updatePublisher(Publisher publisher) {
 
         Publisher publisherStored = repository.findById(publisher.getPubId()).orElseThrow();

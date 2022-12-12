@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/publisher")
 public class PublisherController {
@@ -21,14 +23,18 @@ public class PublisherController {
     public ResponseEntity<Publisher> getPublisherbyId(@PathVariable long id) {
         return ResponseEntity.status(200).body(service.getPublisherbyID(id));
     }
+    @GetMapping()
+    public ResponseEntity<List<Publisher>> getAllPublisher() {
+        return ResponseEntity.status(200).body(service.getAllPublisher());
+    }
 
     @PutMapping()
     public ResponseEntity<Publisher> updatePublisher(@RequestBody Publisher publisher) {
         return ResponseEntity.status(200).body(service.updatePublisher(publisher));
     }
 
-    @DeleteMapping()
-    public ResponseEntity<String> createPublisher(@PathVariable long id) {
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deletePublisher(@PathVariable long id) {
         return ResponseEntity.status(200).body(service.deletePublisher(id));
     }
 }
