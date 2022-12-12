@@ -7,6 +7,7 @@
     "manRealease": "2013/09/27",
     "manGenre": ["Recuentos_de_la_vida","Comedia","Vida_Escolar"],
     "manStatus": "Finish",
+    "manIdPublisher": 2,
     "manChapters": []
   },
   {
@@ -17,6 +18,7 @@
     "manRealease": "2001/07/12",
     "manGenre": ["Accion","Aventura","Comedia","Drama","Supernatural","Magia"],
     "manStatus": "Finish",
+    "manIdPublisher": 1,
     "manChapters": []
   },
   {
@@ -27,6 +29,7 @@
     "manRealease": "2012/04/18",
     "manGenre": ["Accion","Aventura","Recuentos_de_la_vida","Comedia","Drama","Supernatural","Vida_Escolar","Magia","Psicologico"],
     "manStatus": "Finish",
+    "manIdPublisher": 2,
     "manChapters": []
   },
   {
@@ -37,13 +40,7 @@
     "manRealease": "2001/11/30",
     "manGenre": ["Accion","Aventura","Horror","Historia","Supernatural","Tragedia"],
     "manStatus": "Finish",
+    "manIdPublisher": 1,
     "manChapters": []
-  },
-  {
-    "manName": "dodoro 2.",
-    "manDemography": "Shoujo"
-  },
-  {
-    "manName": "hitori2.0"
   }
 ]

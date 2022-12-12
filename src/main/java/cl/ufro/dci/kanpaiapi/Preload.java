@@ -1,11 +1,17 @@
 package cl.ufro.dci.kanpaiapi;
 
+import cl.ufro.dci.kanpaiapi.dto.MangaDto;
+import cl.ufro.dci.kanpaiapi.dto.PublisherDto;
 import cl.ufro.dci.kanpaiapi.model.Manga;
+import cl.ufro.dci.kanpaiapi.model.Publisher;
 import cl.ufro.dci.kanpaiapi.repository.ChapterRepository;
 import cl.ufro.dci.kanpaiapi.repository.MangaRepository;
+import cl.ufro.dci.kanpaiapi.repository.PublisherRepository;
 import cl.ufro.dci.kanpaiapi.service.ChapterService;
 import cl.ufro.dci.kanpaiapi.service.MangaService;
+import cl.ufro.dci.kanpaiapi.service.PublisherService;
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.springframework.boot.CommandLineRunner;
@@ -19,26 +25,36 @@ import java.util.List;
 
 @Component
 public class Preload {
-    private static final File mangasFile = Paths
+    private static final File publisherFile = Paths
+            .get("src", "main", "resources", "publisher.json").toFile();
+    private static final File mangaFile = Paths
             .get("src", "main", "resources", "manga.json").toFile();
 
     @Bean
-    CommandLineRunner run(MangaService mangaService, MangaRepository mangaRepository, ChapterService chapterService,
-                          ChapterRepository chapterRepository) {
+    CommandLineRunner run(PublisherService publisherService, MangaService mangaService) {
         return args -> {
-            List<Manga> mangas = new ArrayList<>();
+            List<PublisherDto> publishers = new ArrayList<>();
+            List<MangaDto> mangas = new ArrayList<>();
             ObjectMapper mapper = new ObjectMapper();
-            mapper.registerModule(new JavaTimeModule());
-            try {
-                mangas = mapper.readValue(mangasFile, new TypeReference<List<Manga>>() {
-                });
 
+            try {
+                publishers = mapper.readValue(publisherFile, new TypeReference<List<PublisherDto>>() {
+                });
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            for (PublisherDto publisher : publishers) {
+                publisherService.createPublisher(publisher);
+            }
+
+            try {
+                mangas = mapper.readValue(mangaFile, new TypeReference<List<MangaDto>>() {
+                });
             } catch (Exception e) {
                 e.printStackTrace();
             }
 
-
-            for (Manga manga : mangas) {
+            for (MangaDto manga : mangas) {
                 mangaService.createManga(manga);
             }
 

@@ -1,16 +1,14 @@
 package cl.ufro.dci.kanpaiapi.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonFormat;
+import cl.ufro.dci.kanpaiapi.dto.MangaDto;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
-import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
-import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -27,10 +25,8 @@ public class Manga {
     private String manSynopsis;
     @Enumerated(EnumType.STRING)
     private Demography manDemography;
-
-    @JsonFormat(pattern = "yyyy/MM/dd")
-    private Date manRealease;
-
+    private String manRealease;
+    @Enumerated(EnumType.STRING)
     private State manStatus;
 
     @ElementCollection
@@ -40,6 +36,8 @@ public class Manga {
     private String manPath;
 
     @ManyToOne(fetch = FetchType.EAGER)
+    @Nullable
+    @JsonIgnore
     private Publisher manPublisher;
 
     @ManyToOne()
@@ -49,6 +47,21 @@ public class Manga {
     @OneToMany(targetEntity = Chapter.class, mappedBy = "chaManga", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonManagedReference
     private List<Chapter> manChapters;
+
+    public MangaDto toDto(){
+        return new MangaDto(
+        this.manId,
+        this.manName,
+        this.manSynopsis,
+        this.manDemography,
+        this.manRealease,
+        this.manStatus,
+        this.manGenre,
+        this.manPath,
+        this.manPublisher.getPubId(),
+        this.manChapters
+        );
+    }
 
     public enum Demography {
         Seinen,

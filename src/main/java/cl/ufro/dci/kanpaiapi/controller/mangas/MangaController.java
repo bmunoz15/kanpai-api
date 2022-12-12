@@ -1,5 +1,6 @@
 package cl.ufro.dci.kanpaiapi.controller.mangas;
 
+import cl.ufro.dci.kanpaiapi.dto.MangaDto;
 import cl.ufro.dci.kanpaiapi.model.Manga;
 import cl.ufro.dci.kanpaiapi.model.Publisher;
 import cl.ufro.dci.kanpaiapi.service.MangaService;
@@ -16,16 +17,16 @@ public class MangaController {
     MangaService service;
 
     @GetMapping("/{id}")
-    public ResponseEntity<Manga> getMangabyId(@PathVariable long id) {
-        return ResponseEntity.status(200).body(service.getMangabyID(id));
+    public ResponseEntity<MangaDto> getMangabyId(@PathVariable long id) {
+        return ResponseEntity.status(200).body(service.getMangabyID(id).toDto());
     }
     @PostMapping()
-    public ResponseEntity<Manga> createManga(@RequestBody Manga manga) {
-        return ResponseEntity.status(200).body(service.createManga(manga));
+    public ResponseEntity<MangaDto> createManga(@RequestBody MangaDto mangaDto) {
+        return ResponseEntity.status(200).body(service.createManga(mangaDto).toDto());
     }
     @PutMapping()
-    public ResponseEntity<Manga> updateManga(@RequestBody Manga manga) {
-        return ResponseEntity.status(200).body(service.updateManga(manga));
+    public ResponseEntity<MangaDto> updateManga(@RequestBody MangaDto mangaDto) {
+        return ResponseEntity.status(200).body(service.updateManga(mangaDto));
     }
     @DeleteMapping()
     public ResponseEntity<String> deleteManga(@RequestBody long id) {

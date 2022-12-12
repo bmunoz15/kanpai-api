@@ -1,5 +1,7 @@
 package cl.ufro.dci.kanpaiapi.service;
 
+import cl.ufro.dci.kanpaiapi.dto.ChapterDto;
+import cl.ufro.dci.kanpaiapi.dto.MangaDto;
 import cl.ufro.dci.kanpaiapi.model.Chapter;
 import cl.ufro.dci.kanpaiapi.model.Manga;
 import cl.ufro.dci.kanpaiapi.repository.ChapterRepository;
@@ -14,8 +16,15 @@ public class ChapterService {
     @Autowired
     ChapterRepository repository;
 
-    public Chapter createChapter(Chapter chapter) {
+    public Chapter createChapter(ChapterDto chapterDto) {
+        Chapter chapter = new Chapter();
+        buildFromDto(chapter,chapterDto);
         return repository.save(chapter);
+    }
+    public ChapterDto updateChapter(ChapterDto chapterDto){
+        Chapter chapterStoraged = getChapterbyID(chapterDto.getChaId());
+        buildFromDto(chapterStoraged,chapterDto);
+        return repository.save(chapterStoraged).toDto();
     }
 
     public List<Chapter> getAllChapters() {
@@ -31,4 +40,10 @@ public class ChapterService {
         repository.delete(chapter);
         return "si";
     }
+    private void buildFromDto(Chapter chapter, ChapterDto chapterDto){
+        chapter.setChaName(chapterDto.getChaName());
+        chapter.setChaPath(chapterDto.getChaPath());
+        chapter.setChaManga(chapterDto.getChaManga());
+    }
+
 }

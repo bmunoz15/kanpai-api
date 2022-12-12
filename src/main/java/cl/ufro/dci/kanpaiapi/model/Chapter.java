@@ -1,5 +1,7 @@
 package cl.ufro.dci.kanpaiapi.model;
 
+import cl.ufro.dci.kanpaiapi.dto.ChapterDto;
+import cl.ufro.dci.kanpaiapi.dto.MangaDto;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,7 +18,6 @@ public class Chapter {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long chaId;
 
-    private int chaNum;
     private String chaName;
 
     private String chaPath;
@@ -24,4 +25,13 @@ public class Chapter {
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonBackReference
     private Manga chaManga;
+
+    public ChapterDto toDto() {
+        return new ChapterDto(
+                this.chaId,
+                this.chaName,
+                this.chaPath,
+                this.chaManga
+        );
+    }
 }

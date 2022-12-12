@@ -1,0 +1,20 @@
+[
+  {
+    "pubName":"Desconocido",
+    "pubDescription": "No description",
+    "pubType":"Editorial",
+    "pubMangas":[]
+  },
+  {
+    "pubName":"Katsuwo",
+    "pubDescription": "No description",
+    "pubType":"Mangaka",
+    "pubMangas":[]
+  },
+  {
+    "pubName":"WOLU",
+    "pubDescription": "WOLU es una editorial de cómics con influencia de manga. \nEl objetivo de nuestras historias es entretener, comentar nuestra sociedad y buscar nuevas formas de narrar.\n¡Hay cómics para todos los gustos y edades! Busca el tuyo. ",
+    "pubType":"Editorial",
+    "pubMangas":[]
+  }
+]

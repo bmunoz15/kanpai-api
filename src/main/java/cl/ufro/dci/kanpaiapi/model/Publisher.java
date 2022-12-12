@@ -1,5 +1,8 @@
 package cl.ufro.dci.kanpaiapi.model;
 
+import cl.ufro.dci.kanpaiapi.dto.MangaDto;
+import cl.ufro.dci.kanpaiapi.dto.PublisherDto;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,10 +26,20 @@ public class Publisher {
     private Type pubType;
 
     @OneToMany(targetEntity = Manga.class, mappedBy = "manPublisher", fetch = FetchType.EAGER,cascade = CascadeType.REFRESH)
+    @JsonIgnore
     private List<Manga> pubMangas;
 
-    private enum Type {
+    public enum Type {
         Editorial,
         Mangaka
+    }
+    public PublisherDto toDto(){
+        return new PublisherDto(
+        this.pubId,
+        this.pubName,
+        this.pubDescription,
+        this.pubType,
+        this.pubMangas
+        );
     }
 }

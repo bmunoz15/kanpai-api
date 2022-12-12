@@ -1,5 +1,7 @@
 package cl.ufro.dci.kanpaiapi.model;
 
+import cl.ufro.dci.kanpaiapi.dto.PublisherDto;
+import cl.ufro.dci.kanpaiapi.dto.ReaderDto;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
@@ -26,16 +28,27 @@ public class Reader {
     @Enumerated(EnumType.STRING)
     private Gender reaGender;
 
-    @JsonFormat(pattern = "yyyy/MM/dd")
-    private Date reaBirthday;
+    private String reaBirthday;
 
 
     @OneToMany(targetEntity = Manga.class, mappedBy = "manReader", fetch = FetchType.EAGER,cascade = CascadeType.REFRESH)
     private List<Manga> reaMangas;
 
-    private enum Gender {
+    public enum Gender {
         Male,
         Female,
         Other
+    }
+    public ReaderDto toDto(){
+        //cambiar dto
+        return new ReaderDto(
+        this.reaId,
+        this.reaName,
+        this.reaLastName,
+        this.reaNickName,
+        this.reaGender,
+        this.reaBirthday,
+        this.reaMangas
+        );
     }
 }
