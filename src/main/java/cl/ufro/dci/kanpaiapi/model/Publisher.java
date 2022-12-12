@@ -22,8 +22,7 @@ public class Publisher {
     @Enumerated(EnumType.STRING)
     private Type pubType;
 
-    @OneToMany(mappedBy = "manPublisher")
-    @JsonManagedReference
+    @OneToMany(targetEntity = Manga.class, mappedBy = "manPublisher", fetch = FetchType.EAGER,cascade = CascadeType.REFRESH)
     private List<Manga> pubMangas;
 
     private enum Type {

@@ -30,8 +30,7 @@ public class Reader {
     private Date reaBirthday;
 
 
-    @OneToMany(mappedBy = "manReader")
-    @JsonManagedReference
+    @OneToMany(targetEntity = Manga.class, mappedBy = "manReader", fetch = FetchType.EAGER,cascade = CascadeType.REFRESH)
     private List<Manga> reaMangas;
 
     private enum Gender {

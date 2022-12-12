@@ -15,6 +15,9 @@ public class ReaderService {
     public Reader createReader(Reader reader) {
         return repository.save(reader);
     }
+    public List<Reader> getAllReaders(){
+        return repository.findAll();
+    }
 
     public Reader getReaderbyID(long id) {
         return repository.findById(id).orElseThrow();
