@@ -26,6 +26,7 @@ public class Preload {
     CommandLineRunner run(MangaService mangaService, MangaRepository mangaRepository, ChapterService chapterService,
                           ChapterRepository chapterRepository) {
         return args -> {
+            /*
             List<Manga> mangas = new ArrayList<>();
             ObjectMapper mapper = new ObjectMapper();
             mapper.registerModule(new JavaTimeModule());
@@ -39,8 +40,9 @@ public class Preload {
 
 
             for (Manga manga : mangas) {
-                mangaService.createManga(manga);
+                mangaService.createManga(manga.toDto());
             }
+             */
 
         };
     }

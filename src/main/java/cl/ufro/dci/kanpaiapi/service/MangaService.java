@@ -1,9 +1,10 @@
 package cl.ufro.dci.kanpaiapi.service;
 
+import cl.ufro.dci.kanpaiapi.dto.MangaDto;
 import cl.ufro.dci.kanpaiapi.model.Genre;
 import cl.ufro.dci.kanpaiapi.model.Manga;
-import cl.ufro.dci.kanpaiapi.model.Publisher;
 import cl.ufro.dci.kanpaiapi.repository.MangaRepository;
+import cl.ufro.dci.kanpaiapi.repository.PublisherRepository;
 import cl.ufro.dci.kanpaiapi.utils.UtilSearch;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,15 +17,22 @@ public class MangaService {
     @Autowired
     MangaRepository repository;
 
-    public Manga createManga(Manga manga) {
+    @Autowired
+    PublisherService publisherService;
+
+    public Manga createManga(MangaDto mangaDto) {
+        Manga manga = new Manga();
+        buildFromDto(manga,mangaDto);
+
         return repository.save(manga);
     }
 
-    public Manga updateManga(Manga manga) {
+    public MangaDto updateManga(MangaDto mangaDto) {
 
-        Manga mangaStored = repository.findById(manga.getManId()).orElseThrow();
+        Manga mangaStored = repository.findById(mangaDto.getManId()).orElseThrow();
 
-        return repository.save(manga);
+        buildFromDto(mangaStored,mangaDto);
+        return repository.save(mangaStored).toDto();
     }
 
     public List<Manga> getAllMangas() {
@@ -73,5 +81,17 @@ public class MangaService {
         Manga manga = getMangabyID(id);
         repository.delete(manga);
         return "si";
+    }
+
+    private void buildFromDto(Manga manga, MangaDto mangaDto){
+        manga.setManName(mangaDto.getManName());
+        manga.setManSynopsis(mangaDto.getManSynopsis());
+        manga.setManDemography(mangaDto.getManDemography());
+        manga.setManRealease(mangaDto.getManRealease());
+        manga.setManStatus(mangaDto.getManStatus());
+        manga.setManGenre(mangaDto.getManGenre());
+        manga.setManPath(mangaDto.getManPath());
+        manga.setManPublisher(publisherService.getPublisherbyID(mangaDto.getManIdPublisher()));
+        manga.setManChapters(mangaDto.getManChapters());
     }
 }

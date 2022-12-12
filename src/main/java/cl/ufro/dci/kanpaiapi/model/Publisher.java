@@ -1,5 +1,6 @@
 package cl.ufro.dci.kanpaiapi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,6 +24,7 @@ public class Publisher {
     private Type pubType;
 
     @OneToMany(targetEntity = Manga.class, mappedBy = "manPublisher", fetch = FetchType.EAGER,cascade = CascadeType.REFRESH)
+    @JsonIgnore
     private List<Manga> pubMangas;
 
     private enum Type {
