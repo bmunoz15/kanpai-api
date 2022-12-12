@@ -1,5 +1,6 @@
 package cl.ufro.dci.kanpaiapi.controller.account;
 
+import cl.ufro.dci.kanpaiapi.dto.PublisherDto;
 import cl.ufro.dci.kanpaiapi.model.Publisher;
 import cl.ufro.dci.kanpaiapi.service.PublisherService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/publisher")
@@ -15,22 +17,24 @@ public class PublisherController {
     PublisherService service;
 
     @PostMapping()
-    public ResponseEntity<Publisher> createPublisher(@RequestBody Publisher publisher) {
-        return ResponseEntity.status(200).body(service.createPublisher(publisher));
+    public ResponseEntity<PublisherDto> createPublisher(@RequestBody PublisherDto publisherDto) {
+        return ResponseEntity.status(200).body(service.createPublisher(publisherDto).toDto());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Publisher> getPublisherbyId(@PathVariable long id) {
-        return ResponseEntity.status(200).body(service.getPublisherbyID(id));
+    public ResponseEntity<PublisherDto> getPublisherbyId(@PathVariable long id) {
+        return ResponseEntity.status(200).body(service.getPublisherbyID(id).toDto());
     }
     @GetMapping()
-    public ResponseEntity<List<Publisher>> getAllPublisher() {
-        return ResponseEntity.status(200).body(service.getAllPublisher());
+    public ResponseEntity<List<PublisherDto>> getAllPublisher() {
+        return ResponseEntity.status(200).body(service.getAllPublisher()
+                .stream().map(Publisher::toDto)
+                .collect(Collectors.toList()));
     }
 
     @PutMapping()
-    public ResponseEntity<Publisher> updatePublisher(@RequestBody Publisher publisher) {
-        return ResponseEntity.status(200).body(service.updatePublisher(publisher));
+    public ResponseEntity<PublisherDto> updatePublisher(@RequestBody PublisherDto publisherDto) {
+        return ResponseEntity.status(200).body(service.updatePublisher(publisherDto));
     }
 
     @DeleteMapping("/{id}")
