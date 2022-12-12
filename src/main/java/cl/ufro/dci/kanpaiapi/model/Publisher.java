@@ -19,6 +19,7 @@ public class Publisher {
 
     private String pubDescription;
     private String pubName;
+    @Enumerated(EnumType.STRING)
     private Type pubType;
 
     @OneToMany(mappedBy = "manPublisher")

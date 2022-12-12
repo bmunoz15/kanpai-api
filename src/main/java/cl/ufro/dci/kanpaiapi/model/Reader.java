@@ -23,6 +23,7 @@ public class Reader {
     private String reaLastName;
 
     private String reaNickName;
+    @Enumerated(EnumType.STRING)
     private Gender reaGender;
 
     @JsonFormat(pattern = "yyyy/MM/dd")
