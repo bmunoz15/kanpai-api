@@ -1,5 +1,6 @@
 package cl.ufro.dci.kanpaiapi.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
@@ -21,6 +22,7 @@ public class Publisher {
     private Type pubType;
 
     @OneToMany(mappedBy = "manPublisher")
+    @JsonManagedReference
     private List<Manga> pubMangas;
 
     private enum Type {
