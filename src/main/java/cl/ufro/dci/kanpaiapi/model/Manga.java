@@ -1,5 +1,6 @@
 package cl.ufro.dci.kanpaiapi.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,7 +26,8 @@ public class Manga {
     @Enumerated(EnumType.STRING)
     private Demography manDemography;
 
-    private String manRealease;
+    @JsonFormat(pattern = "yyyy/MM/dd")
+    private Date manRealease;
 
     private State manStatus;
 
