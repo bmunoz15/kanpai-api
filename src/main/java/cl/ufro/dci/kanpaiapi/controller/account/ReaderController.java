@@ -1,5 +1,6 @@
 package cl.ufro.dci.kanpaiapi.controller.account;
 
+import cl.ufro.dci.kanpaiapi.dto.ReaderDto;
 import cl.ufro.dci.kanpaiapi.model.Reader;
 import cl.ufro.dci.kanpaiapi.service.ReaderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/reader")
@@ -15,23 +17,25 @@ public class ReaderController {
     ReaderService service;
 
     @PostMapping()
-    public ResponseEntity<Reader> createReader(@RequestBody Reader reader) {
-        return ResponseEntity.status(200).body(service.createReader(reader));
+    public ResponseEntity<ReaderDto> createReader(@RequestBody ReaderDto readerDto) {
+        return ResponseEntity.status(200).body(service.createReader(readerDto).toDto());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Reader> getReaderbyId(@PathVariable long id) {
-        return ResponseEntity.status(200).body(service.getReaderbyID(id));
+    public ResponseEntity<ReaderDto> getReaderbyId(@PathVariable long id) {
+        return ResponseEntity.status(200).body(service.getReaderbyID(id).toDto());
     }
 
     @GetMapping()
-    public ResponseEntity<List<Reader>> getAllReader() {
-        return ResponseEntity.status(200).body(service.getAllReader());
+    public ResponseEntity<List<ReaderDto>> getAllReader() {
+        return ResponseEntity.status(200).body(service.getAllReader()
+                .stream().map(Reader::toDto)
+                .collect(Collectors.toList()));
     }
 
     @PutMapping()
-    public ResponseEntity<Reader> updateReader(@RequestBody Reader reader) {
-        return ResponseEntity.status(200).body(service.updateReader(reader));
+    public ResponseEntity<ReaderDto> updateReader(@RequestBody ReaderDto readerDto) {
+        return ResponseEntity.status(200).body(service.updateReader(readerDto));
     }
 
     @DeleteMapping("/{id}")

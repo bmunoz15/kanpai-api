@@ -1,5 +1,8 @@
 package cl.ufro.dci.kanpaiapi.service;
 
+import cl.ufro.dci.kanpaiapi.dto.PublisherDto;
+import cl.ufro.dci.kanpaiapi.dto.ReaderDto;
+import cl.ufro.dci.kanpaiapi.model.Publisher;
 import cl.ufro.dci.kanpaiapi.model.Reader;
 import cl.ufro.dci.kanpaiapi.repository.ReaderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,11 +15,10 @@ public class ReaderService {
     @Autowired
     ReaderRepository repository;
 
-    public Reader createReader(Reader reader) {
+    public Reader createReader(ReaderDto readerDto) {
+        Reader reader = new Reader();
+        buildFromDto(reader,readerDto);
         return repository.save(reader);
-    }
-    public List<Reader> getAllReaders(){
-        return repository.findAll();
     }
 
     public Reader getReaderbyID(long id) {
@@ -26,16 +28,25 @@ public class ReaderService {
     public List<Reader> getAllReader(){
         return  repository.findAll();
     }
-    public Reader updateReader(Reader reader) {
+    public ReaderDto updateReader(ReaderDto readerDto) {
 
-        Reader readerStored = repository.findById(reader.getReaId()).orElseThrow();
+        Reader readerStored = repository.findById(readerDto.getReaId()).orElseThrow();
+        buildFromDto(readerStored,readerDto);
 
-        return repository.save(reader);
+        return repository.save(readerStored).toDto();
     }
 
     public String deleteReader(long id) {
         Reader reader = getReaderbyID(id);
         repository.delete(reader);
         return "si";
+    }
+    private void buildFromDto(Reader reader, ReaderDto readerDto){
+        reader.setReaName(readerDto.getReaName());
+        reader.setReaLastName(readerDto.getReaLastName());
+        reader.setReaNickName(readerDto.getReaNickName());
+        reader.setReaGender(readerDto.getReaGender());
+        reader.setReaBirthday(readerDto.getReaBirthday());
+        reader.setReaMangas(readerDto.getReaMangas());
     }
 }

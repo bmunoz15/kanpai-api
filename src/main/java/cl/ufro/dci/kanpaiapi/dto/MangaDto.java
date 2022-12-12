@@ -24,17 +24,4 @@ public class MangaDto {
     private Long manIdPublisher;
     private List<Chapter> manChapters;
 
-    public enum Demography {
-        Seinen,
-        Shoujo,
-        Shounen,
-        Josei,
-        Kodomo
-    }
-
-    public enum State {
-        Emission,
-        Finish,
-        Hiatus
-    }
 }
