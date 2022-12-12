@@ -1,5 +1,6 @@
 package cl.ufro.dci.kanpaiapi.controller.mangas;
 
+import cl.ufro.dci.kanpaiapi.dto.ChapterDto;
 import cl.ufro.dci.kanpaiapi.model.Chapter;
 import cl.ufro.dci.kanpaiapi.model.Manga;
 import cl.ufro.dci.kanpaiapi.service.ChapterService;
@@ -9,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("chapter")
@@ -17,18 +19,25 @@ public class ChapterController {
     ChapterService service;
 
     @PostMapping()
-    public ResponseEntity<Chapter> createChapter(@RequestBody Chapter chapter) {
-        return ResponseEntity.status(200).body(service.createChapter(chapter));
+    public ResponseEntity<ChapterDto> createChapter(@RequestBody ChapterDto chapterDto) {
+        return ResponseEntity.status(200).body(service.createChapter(chapterDto).toDto());
     }
 
     @GetMapping()
-    public ResponseEntity<List<Chapter>> getAllChapters() {
-        return ResponseEntity.status(200).body(service.getAllChapters());
+    public ResponseEntity<List<ChapterDto>> getAllChapters() {
+        return ResponseEntity.status(200).body(service.getAllChapters()
+                .stream().map(Chapter::toDto)
+                .collect(Collectors.toList()));
+    }
+
+    @PutMapping
+    public ResponseEntity<ChapterDto> updateChapter(@RequestBody ChapterDto chapterDto) {
+        return ResponseEntity.status(200).body(service.updateChapter(chapterDto));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Chapter> getChapterbyId(@PathVariable long id) {
-        return ResponseEntity.status(200).body(service.getChapterbyID(id));
+    public ResponseEntity<ChapterDto> getChapterbyId(@PathVariable long id) {
+        return ResponseEntity.status(200).body(service.getChapterbyID(id).toDto());
     }
 
     @DeleteMapping("/{id}")
