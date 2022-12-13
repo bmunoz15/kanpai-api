@@ -42,6 +42,7 @@ public class ChapterService {
     }
     private void buildFromDto(Chapter chapter, ChapterDto chapterDto){
         chapter.setChaName(chapterDto.getChaName());
+        chapter.setChaNum(chapterDto.getChaNum());
         chapter.setChaPath(chapterDto.getChaPath());
         chapter.setChaManga(chapterDto.getChaManga());
     }

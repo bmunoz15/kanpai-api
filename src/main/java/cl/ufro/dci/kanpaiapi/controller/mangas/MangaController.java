@@ -12,13 +12,14 @@ import java.util.List;
 
 @RestController
 @RequestMapping("manga")
+@CrossOrigin(origins = "http://localhost:5173")
 public class MangaController {
     @Autowired
     MangaService service;
 
-    @GetMapping("/{id}")
-    public ResponseEntity<MangaDto> getMangabyId(@PathVariable long id) {
-        return ResponseEntity.status(200).body(service.getMangabyID(id).toDto());
+    @GetMapping("/{name}")
+    public ResponseEntity<MangaDto> getFirstMangabyName(@PathVariable String name) {
+        return ResponseEntity.status(200).body(service.getFirstMangabyName(name).toDto());
     }
     @PostMapping()
     public ResponseEntity<MangaDto> createManga(@RequestBody MangaDto mangaDto) {

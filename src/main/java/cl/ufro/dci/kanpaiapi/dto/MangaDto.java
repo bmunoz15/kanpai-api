@@ -12,6 +12,11 @@ import java.util.List;
 @RequiredArgsConstructor
 @AllArgsConstructor
 public class MangaDto {
+    public MangaDto(Long manId, String manName, String manSynopsis) {
+        this.manId = manId;
+        this.manName = manName;
+        this.manSynopsis = manSynopsis;
+    }
 
     private Long manId;
     private String manName;

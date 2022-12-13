@@ -18,17 +18,19 @@ public class Chapter {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long chaId;
 
+    private int chaNum;
     private String chaName;
 
     private String chaPath;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JsonBackReference
     private Manga chaManga;
 
     public ChapterDto toDto() {
         return new ChapterDto(
                 this.chaId,
+                this.chaNum,
                 this.chaName,
                 this.chaPath,
                 this.chaManga

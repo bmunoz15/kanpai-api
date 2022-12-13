@@ -4,7 +4,6 @@ import cl.ufro.dci.kanpaiapi.dto.MangaDto;
 import cl.ufro.dci.kanpaiapi.model.Genre;
 import cl.ufro.dci.kanpaiapi.model.Manga;
 import cl.ufro.dci.kanpaiapi.repository.MangaRepository;
-import cl.ufro.dci.kanpaiapi.repository.PublisherRepository;
 import cl.ufro.dci.kanpaiapi.utils.UtilSearch;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -41,6 +40,9 @@ public class MangaService {
 
     public Manga getMangabyID(long id) {
         return repository.findById(id).orElseThrow();
+    }
+    public Manga getFirstMangabyName(String name){
+        return repository.findMangaByManNameContainingIgnoreCase(name);
     }
 
     public List<Manga> searchMangabyName(String name) {

@@ -17,6 +17,7 @@ import java.util.List;
 public class ChapterDto {
 
     private Long chaId;
+    private int chaNum;
     private String chaName;
     private String chaPath;
     private Manga chaManga;

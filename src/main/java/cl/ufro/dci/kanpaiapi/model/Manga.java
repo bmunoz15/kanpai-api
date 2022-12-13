@@ -44,22 +44,30 @@ public class Manga {
     @JsonIgnore
     private Reader manReader;
 
-    @OneToMany(targetEntity = Chapter.class, mappedBy = "chaManga", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(targetEntity = Chapter.class, mappedBy = "chaManga", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JsonManagedReference
     private List<Chapter> manChapters;
 
-    public MangaDto toDto(){
+    public MangaDto toDto() {
         return new MangaDto(
-        this.manId,
-        this.manName,
-        this.manSynopsis,
-        this.manDemography,
-        this.manRealease,
-        this.manStatus,
-        this.manGenre,
-        this.manPath,
-        this.manPublisher.getPubId(),
-        this.manChapters
+                this.manId,
+                this.manName,
+                this.manSynopsis,
+                this.manDemography,
+                this.manRealease,
+                this.manStatus,
+                this.manGenre,
+                this.manPath,
+                this.manPublisher.getPubId(),
+                this.manChapters
+        );
+    }
+
+    public MangaDto toDtoP() {
+        return new MangaDto(
+                this.manId,
+                this.manName,
+                this.manSynopsis
         );
     }
 

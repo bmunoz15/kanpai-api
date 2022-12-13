@@ -5,16 +5,14 @@ import cl.ufro.dci.kanpaiapi.model.Manga;
 import cl.ufro.dci.kanpaiapi.service.MangaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping()
+@CrossOrigin(origins = "http://localhost:5173")
 public class CatalogController {
     @Autowired
     MangaService mangaService;
@@ -22,7 +20,7 @@ public class CatalogController {
     @GetMapping()
     public ResponseEntity<List<MangaDto>> getAllMangas() {
         return ResponseEntity.status(200).body(mangaService.getAllMangas()
-                .stream().map(Manga::toDto)
+                .stream().map(Manga::toDtoP)
                 .collect(Collectors.toList()));
     }
 
