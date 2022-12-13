@@ -25,7 +25,6 @@ public class MangaDto {
     private String manRealease;
     private Manga.State manStatus;
     private List<Genre> manGenre;
-    private String manPath;
     private String manThumbnail;
     private String manBanner;
     private Long manIdPublisher;

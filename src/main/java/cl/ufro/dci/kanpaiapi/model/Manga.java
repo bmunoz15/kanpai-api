@@ -35,7 +35,6 @@ public class Manga {
 
     private String manThumbnail;
     private String manBanner;
-    private String manPath;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @Nullable
@@ -59,7 +58,6 @@ public class Manga {
                 this.manRealease,
                 this.manStatus,
                 this.manGenre,
-                this.manPath,
                 this.manThumbnail,
                 this.manBanner,
                 this.manPublisher.getPubId(),
@@ -86,8 +84,8 @@ public class Manga {
     }
 
     public enum State {
-        EMISSION,
-        FINISH,
+        EMISION,
+        FINALIZADO,
         HIATUS
     }
 }
