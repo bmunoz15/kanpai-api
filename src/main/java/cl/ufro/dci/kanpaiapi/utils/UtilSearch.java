@@ -1,11 +1,10 @@
 package cl.ufro.dci.kanpaiapi.utils;
 
-import org.springframework.stereotype.Component;
-
 import java.text.Normalizer;
 
 
 public class UtilSearch {
+    private UtilSearch(){}
 
     public static String formatearTexto(String text) {
         text = text.toLowerCase();

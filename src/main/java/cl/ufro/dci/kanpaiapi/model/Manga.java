@@ -78,16 +78,16 @@ public class Manga {
     }
 
     public enum Demography {
-        Seinen,
-        Shoujo,
-        Shounen,
-        Josei,
-        Kodomo
+        SEINEN,
+        SHOUJO,
+        SHOUNEN,
+        JOSEI,
+        KODOMO
     }
 
     public enum State {
-        Emission,
-        Finish,
-        Hiatus
+        EMISSION,
+        FINISH,
+        HIATUS
     }
 }

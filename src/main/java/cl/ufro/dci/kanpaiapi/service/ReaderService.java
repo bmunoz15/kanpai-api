@@ -1,8 +1,6 @@
 package cl.ufro.dci.kanpaiapi.service;
 
-import cl.ufro.dci.kanpaiapi.dto.PublisherDto;
 import cl.ufro.dci.kanpaiapi.dto.ReaderDto;
-import cl.ufro.dci.kanpaiapi.model.Publisher;
 import cl.ufro.dci.kanpaiapi.model.Reader;
 import cl.ufro.dci.kanpaiapi.repository.ReaderRepository;
 import org.springframework.beans.factory.annotation.Autowired;

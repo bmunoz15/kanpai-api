@@ -3,19 +3,11 @@ package cl.ufro.dci.kanpaiapi;
 import cl.ufro.dci.kanpaiapi.dto.MangaDto;
 import cl.ufro.dci.kanpaiapi.dto.PublisherDto;
 import cl.ufro.dci.kanpaiapi.dto.ReaderDto;
-import cl.ufro.dci.kanpaiapi.model.Manga;
-import cl.ufro.dci.kanpaiapi.model.Publisher;
-import cl.ufro.dci.kanpaiapi.repository.ChapterRepository;
-import cl.ufro.dci.kanpaiapi.repository.MangaRepository;
-import cl.ufro.dci.kanpaiapi.repository.PublisherRepository;
-import cl.ufro.dci.kanpaiapi.service.ChapterService;
 import cl.ufro.dci.kanpaiapi.service.MangaService;
 import cl.ufro.dci.kanpaiapi.service.PublisherService;
 import cl.ufro.dci.kanpaiapi.service.ReaderService;
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
@@ -27,12 +19,13 @@ import java.util.List;
 
 @Component
 public class Preload {
+    private static final String[] ruta= {"src","main","resources"};
     private static final File publisherFile = Paths
-            .get("src", "main", "resources", "publisher.json").toFile();
+            .get(ruta[0], ruta[1], ruta[2], "publisher.json").toFile();
     private static final File mangaFile = Paths
-            .get("src", "main", "resources", "manga.json").toFile();
+            .get(ruta[0], ruta[1], ruta[2], "manga.json").toFile();
     private static final File readerFile = Paths
-            .get("src", "main", "resources", "reader.json").toFile();
+            .get(ruta[0], ruta[1], ruta[2], "reader.json").toFile();
 
     @Bean
     CommandLineRunner run(PublisherService publisherService, MangaService mangaService, ReaderService readerService) {

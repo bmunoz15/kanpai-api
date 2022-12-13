@@ -1,11 +1,8 @@
 package cl.ufro.dci.kanpaiapi.service;
 
 import cl.ufro.dci.kanpaiapi.dto.ChapterDto;
-import cl.ufro.dci.kanpaiapi.dto.MangaDto;
 import cl.ufro.dci.kanpaiapi.model.Chapter;
-import cl.ufro.dci.kanpaiapi.model.Manga;
 import cl.ufro.dci.kanpaiapi.repository.ChapterRepository;
-import cl.ufro.dci.kanpaiapi.repository.MangaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

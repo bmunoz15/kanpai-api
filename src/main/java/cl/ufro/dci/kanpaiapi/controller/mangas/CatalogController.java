@@ -8,7 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping()
@@ -21,34 +20,36 @@ public class CatalogController {
     public ResponseEntity<List<MangaDto>> getAllMangas() {
         return ResponseEntity.status(200).body(mangaService.getAllMangas()
                 .stream().map(Manga::toDtoP)
-                .collect(Collectors.toList()));
+                .toList());
     }
 
     @GetMapping("search-n/{name}")
-    public  ResponseEntity<List<MangaDto>> getAllMangasByName(@PathVariable String name){
+    public ResponseEntity<List<MangaDto>> getAllMangasByName(@PathVariable String name) {
         return ResponseEntity.status(200).body(mangaService.searchMangabyName(name)
                 .stream().map(Manga::toDto)
-                .collect(Collectors.toList()));
-    }
-    @GetMapping("search-g/{genre}")
-    public  ResponseEntity<List<MangaDto>> getAllMangasByGenre(@PathVariable String genre){
-        return ResponseEntity.status(200).body(mangaService.searchMangabyGenre(genre)
-                .stream().map(Manga::toDto)
-                .collect(Collectors.toList()));
-    }
-    @GetMapping("search-d/{demography}")
-    public  ResponseEntity<List<MangaDto>> getAllMangasByDemography(@PathVariable String demography){
-        return ResponseEntity.status(200).body(mangaService.searchMangabyDemography(demography)
-                .stream().map(Manga::toDto)
-                .collect(Collectors.toList()));
-    }
-    @GetMapping("search-nd/{name}/{demography}")
-    public  ResponseEntity<List<MangaDto>> getAllMangasByNameandDemography(@PathVariable String name, @PathVariable Manga.Demography demography){
-        return ResponseEntity.status(200).body(mangaService.searchMangabyNameandDemography(name,demography)
-                .stream().map(Manga::toDto)
-                .collect(Collectors.toList()));
+                .toList());
     }
 
+    @GetMapping("search-g/{genre}")
+    public ResponseEntity<List<MangaDto>> getAllMangasByGenre(@PathVariable String genre) {
+        return ResponseEntity.status(200).body(mangaService.searchMangabyGenre(genre)
+                .stream().map(Manga::toDto)
+                .toList());
+    }
+
+    @GetMapping("search-d/{demography}")
+    public ResponseEntity<List<MangaDto>> getAllMangasByDemography(@PathVariable String demography) {
+        return ResponseEntity.status(200).body(mangaService.searchMangabyDemography(demography)
+                .stream().map(Manga::toDto)
+                .toList());
+    }
+
+    @GetMapping("search-nd/{name}/{demography}")
+    public ResponseEntity<List<MangaDto>> getAllMangasByNameandDemography(@PathVariable String name, @PathVariable Manga.Demography demography) {
+        return ResponseEntity.status(200).body(mangaService.searchMangabyNameandDemography(name, demography)
+                .stream().map(Manga::toDto)
+                .toList());
+    }
 
 
 }
