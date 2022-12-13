@@ -12,10 +12,11 @@ import java.util.List;
 @RequiredArgsConstructor
 @AllArgsConstructor
 public class MangaDto {
-    public MangaDto(Long manId, String manName, String manSynopsis) {
+    public MangaDto(Long manId, String manName, String manSynopsis, String manThumbnail) {
         this.manId = manId;
         this.manName = manName;
         this.manSynopsis = manSynopsis;
+        this.manThumbnail = manThumbnail;
     }
 
     private Long manId;
@@ -26,6 +27,8 @@ public class MangaDto {
     private Manga.State manStatus;
     private List<Genre> manGenre;
     private String manPath;
+    private String manThumbnail;
+    private String manBanner;
     private Long manIdPublisher;
     private List<Chapter> manChapters;
 

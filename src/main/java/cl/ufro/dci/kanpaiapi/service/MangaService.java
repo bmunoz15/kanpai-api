@@ -42,7 +42,7 @@ public class MangaService {
         return repository.findById(id).orElseThrow();
     }
     public Manga getFirstMangabyName(String name){
-        return repository.findMangaByManNameContainingIgnoreCase(name);
+        return repository.findMangasByManNameIgnoreCase(name.replaceAll("-"," "));
     }
 
     public List<Manga> searchMangabyName(String name) {
@@ -89,6 +89,8 @@ public class MangaService {
         manga.setManName(mangaDto.getManName());
         manga.setManSynopsis(mangaDto.getManSynopsis());
         manga.setManDemography(mangaDto.getManDemography());
+        manga.setManThumbnail(mangaDto.getManThumbnail());
+        manga.setManBanner(mangaDto.getManBanner());
         manga.setManRealease(mangaDto.getManRealease());
         manga.setManStatus(mangaDto.getManStatus());
         manga.setManGenre(mangaDto.getManGenre());
