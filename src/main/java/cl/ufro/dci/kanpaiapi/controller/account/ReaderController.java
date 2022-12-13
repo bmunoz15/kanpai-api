@@ -8,7 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/reader")
@@ -30,7 +29,7 @@ public class ReaderController {
     public ResponseEntity<List<ReaderDto>> getAllReader() {
         return ResponseEntity.status(200).body(service.getAllReader()
                 .stream().map(Reader::toDto)
-                .collect(Collectors.toList()));
+                .toList());
     }
 
     @PutMapping()

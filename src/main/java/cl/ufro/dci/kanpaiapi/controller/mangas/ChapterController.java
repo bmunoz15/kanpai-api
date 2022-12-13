@@ -2,15 +2,12 @@ package cl.ufro.dci.kanpaiapi.controller.mangas;
 
 import cl.ufro.dci.kanpaiapi.dto.ChapterDto;
 import cl.ufro.dci.kanpaiapi.model.Chapter;
-import cl.ufro.dci.kanpaiapi.model.Manga;
 import cl.ufro.dci.kanpaiapi.service.ChapterService;
-import cl.ufro.dci.kanpaiapi.service.MangaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("chapter")
@@ -27,7 +24,7 @@ public class ChapterController {
     public ResponseEntity<List<ChapterDto>> getAllChapters() {
         return ResponseEntity.status(200).body(service.getAllChapters()
                 .stream().map(Chapter::toDto)
-                .collect(Collectors.toList()));
+                .toList());
     }
 
     @PutMapping

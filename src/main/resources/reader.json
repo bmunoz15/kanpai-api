@@ -3,7 +3,7 @@
     "reaName":"Pablo Alejandro",
     "reaLastName": "Rain",
     "reaNickName":"PabloPregunta",
-    "reaGender":"Male",
+    "reaGender":"MALE",
     "reaBirthday": "2000/10/11",
     "reaMangas": []
   },
@@ -11,7 +11,7 @@
     "reaName":"Javier Antonio",
     "reaLastName": "Medina",
     "reaNickName":"Xanfired",
-    "reaGender":"Other",
+    "reaGender":"OTHER",
     "reaBirthday": "1998/10/11",
     "reaMangas": []
   },
@@ -19,7 +19,7 @@
     "reaName":"Felipe Xomiro",
     "reaLastName": "Sanzana",
     "reaNickName":"ManzaMongos",
-    "reaGender":"Female",
+    "reaGender":"FEMALE",
     "reaBirthday": "1999/10/11",
     "reaMangas": []
   }

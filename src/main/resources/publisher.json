@@ -1,20 +1,98 @@
 [
   {
-    "pubName":"Desconocido",
+    "pubName": "Desconocido",
     "pubDescription": "No description",
-    "pubType":"Editorial",
-    "pubMangas":[]
+    "pubType": "EDITORIAL",
+    "pubMangas": []
   },
   {
-    "pubName":"Katsuwo",
+    "pubName": "Katsuwo",
     "pubDescription": "No description",
-    "pubType":"Mangaka",
-    "pubMangas":[]
+    "pubType": "MANGAKA",
+    "pubMangas": []
   },
   {
-    "pubName":"WOLU",
+    "pubName": "WOLU",
     "pubDescription": "WOLU es una editorial de cómics con influencia de manga. \nEl objetivo de nuestras historias es entretener, comentar nuestra sociedad y buscar nuevas formas de narrar.\n¡Hay cómics para todos los gustos y edades! Busca el tuyo. ",
-    "pubType":"Editorial",
-    "pubMangas":[]
+    "pubType": "EDITORIAL",
+    "pubMangas": []
+  },
+  {
+    "pubName": "Otomo Katsuhiro",
+    "pubDescription": "No description",
+    "pubType": "MANGAKA",
+    "pubMangas": []
+  },
+  {
+    "pubName": "Miura Kentaro",
+    "pubDescription": "No description",
+    "pubType": "MANGAKA",
+    "pubMangas": []
+  },
+  {
+    "pubName": "Ohba Tsugumi",
+    "pubDescription": "No description",
+    "pubType": "MANGAKA",
+    "pubMangas": []
+  },
+  {
+    "pubName": "Tezuka Osamu",
+    "pubDescription": "No description",
+    "pubType": "MANGAKA",
+    "pubMangas": []
+  },
+  {
+    "pubName": "Arakawa Hiromoru",
+    "pubDescription": "No description",
+    "pubType": "MANGAKA",
+    "pubMangas": []
+  },
+  {
+    "pubName": "Morikawa George",
+    "pubDescription": "No description",
+    "pubType": "MANGAKA",
+    "pubMangas": []
+  },
+  {
+    "pubName": "Katsuwo",
+    "pubDescription": "No description",
+    "pubType": "MANGAKA",
+    "pubMangas": []
+  },
+  {
+    "pubName": "Akihito Tsukushi",
+    "pubDescription": "No description",
+    "pubType": "MANGAKA",
+    "pubMangas": []
+  },
+  {
+    "pubName": "One",
+    "pubDescription": "No description",
+    "pubType": "MANGAKA",
+    "pubMangas": []
+  },
+  {
+    "pubName": "Hideaki Anno",
+    "pubDescription": "No description",
+    "pubType": "MANGAKA",
+    "pubMangas": []
+  },
+  {
+    "pubName": "Endou Tatsuya",
+    "pubDescription": "No description",
+    "pubType": "MANGAKA",
+    "pubMangas": []
+  },
+  {
+    "pubName": "Inque Takehiko",
+    "pubDescription": "No description",
+    "pubType": "MANGAKA",
+    "pubMangas": []
+  },
+  {
+    "pubName": "Yukimura Makoto",
+    "pubDescription": "No description",
+    "pubType": "MANGAKA",
+    "pubMangas": []
   }
 ]

@@ -35,7 +35,6 @@ public class Manga {
 
     private String manThumbnail;
     private String manBanner;
-    private String manPath;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @Nullable
@@ -59,7 +58,6 @@ public class Manga {
                 this.manRealease,
                 this.manStatus,
                 this.manGenre,
-                this.manPath,
                 this.manThumbnail,
                 this.manBanner,
                 this.manPublisher.getPubId(),
@@ -78,16 +76,16 @@ public class Manga {
     }
 
     public enum Demography {
-        Seinen,
-        Shoujo,
-        Shounen,
-        Josei,
-        Kodomo
+        SEINEN,
+        SHOUJO,
+        SHOUNEN,
+        JOSEI,
+        KODOMO
     }
 
     public enum State {
-        Emission,
-        Finish,
-        Hiatus
+        EMISION,
+        FINALIZADO,
+        HIATUS
     }
 }

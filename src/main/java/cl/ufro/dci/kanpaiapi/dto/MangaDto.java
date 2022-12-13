@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
-import java.util.Date;
 import java.util.List;
 
 @Data
@@ -26,7 +25,6 @@ public class MangaDto {
     private String manRealease;
     private Manga.State manStatus;
     private List<Genre> manGenre;
-    private String manPath;
     private String manThumbnail;
     private String manBanner;
     private Long manIdPublisher;

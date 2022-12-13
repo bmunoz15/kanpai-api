@@ -8,7 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/publisher")
@@ -29,7 +28,7 @@ public class PublisherController {
     public ResponseEntity<List<PublisherDto>> getAllPublisher() {
         return ResponseEntity.status(200).body(service.getAllPublisher()
                 .stream().map(Publisher::toDto)
-                .collect(Collectors.toList()));
+                .toList());
     }
 
     @PutMapping()
