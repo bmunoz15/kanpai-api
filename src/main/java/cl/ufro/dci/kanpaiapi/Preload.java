@@ -3,6 +3,7 @@ package cl.ufro.dci.kanpaiapi;
 import cl.ufro.dci.kanpaiapi.dto.MangaDto;
 import cl.ufro.dci.kanpaiapi.dto.PublisherDto;
 import cl.ufro.dci.kanpaiapi.dto.ReaderDto;
+import cl.ufro.dci.kanpaiapi.exception.ApiRequestException;
 import cl.ufro.dci.kanpaiapi.service.MangaService;
 import cl.ufro.dci.kanpaiapi.service.PublisherService;
 import cl.ufro.dci.kanpaiapi.service.ReaderService;
@@ -39,7 +40,7 @@ public class Preload {
                 publishers = mapper.readValue(publisherFile, new TypeReference<List<PublisherDto>>() {
                 });
             } catch (Exception e) {
-                e.printStackTrace();
+                throw new ApiRequestException(e.getMessage());
             }
             for (PublisherDto publisher : publishers) {
                 publisherService.createPublisher(publisher);
@@ -49,7 +50,7 @@ public class Preload {
                 mangas = mapper.readValue(mangaFile, new TypeReference<List<MangaDto>>() {
                 });
             } catch (Exception e) {
-                e.printStackTrace();
+                throw new ApiRequestException(e.getMessage());
             }
 
             for (MangaDto manga : mangas) {
@@ -60,7 +61,7 @@ public class Preload {
                 readers = mapper.readValue(readerFile, new TypeReference<List<ReaderDto>>() {
                 });
             } catch (Exception e) {
-                e.printStackTrace();
+                throw new ApiRequestException(e.getMessage());
             }
 
             for (ReaderDto readerDto : readers) {

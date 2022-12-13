@@ -28,8 +28,8 @@ public class MangaController {
         return ResponseEntity.status(200).body(service.updateManga(mangaDto));
     }
 
-    @DeleteMapping()
-    public ResponseEntity<String> deleteManga(@RequestBody long id) {
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteManga(@PathVariable long id) {
         return ResponseEntity.status(200).body(service.deleteManga(id));
     }
 
