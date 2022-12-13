@@ -33,6 +33,8 @@ public class Manga {
     @Enumerated(EnumType.STRING)
     private List<Genre> manGenre;
 
+    private String manThumbnail;
+    private String manBanner;
     private String manPath;
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -58,6 +60,8 @@ public class Manga {
                 this.manStatus,
                 this.manGenre,
                 this.manPath,
+                this.manThumbnail,
+                this.manBanner,
                 this.manPublisher.getPubId(),
                 this.manChapters
         );
@@ -67,7 +71,9 @@ public class Manga {
         return new MangaDto(
                 this.manId,
                 this.manName,
-                this.manSynopsis
+                this.manSynopsis,
+                this.manThumbnail
+
         );
     }
 
