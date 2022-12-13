@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("manga")
-@CrossOrigin(origins = "http://localhost:5173")
 public class MangaController {
     @Autowired
     MangaService service;

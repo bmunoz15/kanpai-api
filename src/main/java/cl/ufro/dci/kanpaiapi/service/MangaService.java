@@ -171,7 +171,6 @@ public class MangaService {
         manga.setManRealease(mangaDto.getManRealease());
         manga.setManStatus(mangaDto.getManStatus());
         manga.setManGenre(mangaDto.getManGenre());
-        manga.setManPath(mangaDto.getManPath());
         manga.setManPublisher(publisherService.getPublisherbyID(mangaDto.getManIdPublisher()));
         manga.setManChapters(mangaDto.getManChapters());
     }
