@@ -13,6 +13,7 @@ public enum Genre {
     FAMILIA,
     FANTASIA,
     GORE,
+    GUERRA,
     HISTORIA,
     HORROR,
     MAGIA,
