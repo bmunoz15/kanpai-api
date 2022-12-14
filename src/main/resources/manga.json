@@ -90,7 +90,7 @@
       "MAGIA"
     ],
     "manStatus": "FINALIZADO",
-    "manIdPublisher": 2,
+    "manIdPublisher": 7,
     "manChapters": []
   },
   {
@@ -109,7 +109,7 @@
       "ARTES_MARCIALES"
     ],
     "manStatus": "EMISION",
-    "manIdPublisher": 2,
+    "manIdPublisher": 8,
     "manChapters": []
   },
   {
@@ -125,7 +125,7 @@
       "VIDA_ESCOLAR"
     ],
     "manStatus": "FINALIZADO",
-    "manIdPublisher": 2,
+    "manIdPublisher": 9,
     "manChapters": []
   },
   {
@@ -147,7 +147,7 @@
       "SUPERVIVENCIA"
     ],
     "manStatus": "EMISION",
-    "manIdPublisher": 2,
+    "manIdPublisher": 10,
     "manChapters": []
   },
   {
@@ -167,7 +167,7 @@
       "AVENTURA"
     ],
     "manStatus": "FINALIZADO",
-    "manIdPublisher": 2,
+    "manIdPublisher": 11,
     "manChapters": []
   },
   {
@@ -187,7 +187,7 @@
       "THRILLER"
     ],
     "manStatus": "FINALIZADO",
-    "manIdPublisher": 2,
+    "manIdPublisher": 12,
     "manChapters": []
   },
   {
@@ -205,7 +205,7 @@
       "RECUENTOS_DE_LA_VIDA"
     ],
     "manStatus": "EMISION",
-    "manIdPublisher": 1,
+    "manIdPublisher": 13,
     "manChapters": []
   },
   {
@@ -223,7 +223,7 @@
       "RECUENTOS_DE_LA_VIDA"
     ],
     "manStatus": "EMISION",
-    "manIdPublisher": 2,
+    "manIdPublisher": 14,
     "manChapters": []
   },
   {
@@ -241,7 +241,7 @@
       "SAMURAI"
     ],
     "manStatus": "HIATUS",
-    "manIdPublisher": 2,
+    "manIdPublisher": 15,
     "manChapters": []
   },
   {
@@ -260,7 +260,7 @@
       "PSICOLOGICO"
     ],
     "manStatus": "FINALIZADO",
-    "manIdPublisher": 2,
+    "manIdPublisher": 16,
     "manChapters": []
   }
 ]
