@@ -50,6 +50,7 @@ public class Manga {
     private List<Chapter> manChapters;
 
     public MangaDto toDto() {
+        assert this.manPublisher != null;
         return new MangaDto(
                 this.manId,
                 this.manName,

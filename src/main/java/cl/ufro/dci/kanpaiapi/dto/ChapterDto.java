@@ -14,5 +14,5 @@ public class ChapterDto {
     private int chaNum;
     private String chaName;
     private String chaPath;
-    private Manga chaManga;
+    private Long chaManga;
 }

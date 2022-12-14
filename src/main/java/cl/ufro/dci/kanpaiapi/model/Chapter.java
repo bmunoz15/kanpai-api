@@ -28,7 +28,7 @@ public class Chapter {
                 this.chaNum,
                 this.chaName,
                 this.chaPath,
-                this.chaManga
+                this.chaManga.getManId()
         );
     }
 }
