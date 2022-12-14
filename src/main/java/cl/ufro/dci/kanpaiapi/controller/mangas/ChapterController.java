@@ -17,13 +17,13 @@ public class ChapterController {
 
     @PostMapping()
     public ResponseEntity<ChapterDto> createChapter(@RequestBody ChapterDto chapterDto) {
-        return ResponseEntity.status(200).body(service.createChapter(chapterDto).toDto());
+        return ResponseEntity.status(200).body(service.createChapter(chapterDto).toDtoP());
     }
 
     @GetMapping()
     public ResponseEntity<List<ChapterDto>> getAllChapters() {
         return ResponseEntity.status(200).body(service.getAllChapters()
-                .stream().map(Chapter::toDto)
+                .stream().map(Chapter::toDtoP)
                 .toList());
     }
 
@@ -34,7 +34,7 @@ public class ChapterController {
 
     @GetMapping("/{id}")
     public ResponseEntity<ChapterDto> getChapterbyId(@PathVariable long id) {
-        return ResponseEntity.status(200).body(service.getChapterbyID(id).toDto());
+        return ResponseEntity.status(200).body(service.getChapterbyID(id).toDtoP());
     }
 
     @DeleteMapping("/{id}")

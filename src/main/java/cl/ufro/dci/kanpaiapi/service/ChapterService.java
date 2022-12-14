@@ -87,7 +87,7 @@ public class ChapterService {
         chapter.setChaName(chapterDto.getChaName());
         chapter.setChaNum(chapterDto.getChaNum());
         chapter.setChaPath(chapterDto.getChaPath());
-        chapter.setChaManga(service.getMangabyID(chapterDto.getChaManga()));
+        chapter.setChaManga(service.getFirstMangabyName(chapterDto.getChaMangaName()));
     }
 
 }
