@@ -5,6 +5,7 @@ import cl.ufro.dci.kanpaiapi.exception.ApiForbiddenException;
 import cl.ufro.dci.kanpaiapi.exception.ApiRequestException;
 import cl.ufro.dci.kanpaiapi.model.Chapter;
 import cl.ufro.dci.kanpaiapi.repository.ChapterRepository;
+import cl.ufro.dci.kanpaiapi.repository.MangaRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +18,8 @@ import java.util.NoSuchElementException;
 public class ChapterService {
     @Autowired
     ChapterRepository repository;
+    @Autowired
+    MangaService service;
 
     public Chapter createChapter(ChapterDto chapterDto) {
         log.info("Creating new chapter");
@@ -84,7 +87,7 @@ public class ChapterService {
         chapter.setChaName(chapterDto.getChaName());
         chapter.setChaNum(chapterDto.getChaNum());
         chapter.setChaPath(chapterDto.getChaPath());
-        chapter.setChaManga(chapterDto.getChaManga());
+        chapter.setChaManga(service.getFirstMangabyName(chapterDto.getChaMangaName()));
     }
 
 }

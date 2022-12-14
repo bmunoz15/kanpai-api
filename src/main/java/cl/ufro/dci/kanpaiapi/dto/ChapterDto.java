@@ -9,10 +9,16 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @AllArgsConstructor
 public class ChapterDto {
+    public ChapterDto(int chaNum, String chaName, String chaPath, String chaMangaName) {
+        this.chaNum = chaNum;
+        this.chaName = chaName;
+        this.chaPath = chaPath;
+        this.chaMangaName = chaMangaName;
+    }
 
     private Long chaId;
     private int chaNum;
     private String chaName;
     private String chaPath;
-    private Manga chaManga;
+    private String chaMangaName;
 }

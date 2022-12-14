@@ -16,6 +16,10 @@ public class MangaController {
     public ResponseEntity<MangaDto> getFirstMangabyName(@PathVariable String name) {
         return ResponseEntity.status(200).body(service.getFirstMangabyName(name).toDto());
     }
+    @GetMapping("id/{id}")
+    public ResponseEntity<MangaDto> getMangabyID(@PathVariable long id){
+        return ResponseEntity.status(200).body(service.getMangabyID(id).toDto());
+    }
 
     @PostMapping()
     public ResponseEntity<MangaDto> createManga(@RequestBody MangaDto mangaDto) {

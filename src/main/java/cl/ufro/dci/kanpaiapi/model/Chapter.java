@@ -28,7 +28,15 @@ public class Chapter {
                 this.chaNum,
                 this.chaName,
                 this.chaPath,
-                this.chaManga
+                this.chaManga.getManName()
+        );
+    }
+    public ChapterDto toDtoP() {
+        return new ChapterDto(
+                this.chaNum,
+                this.chaName,
+                this.chaPath,
+                this.chaManga.getManName()
         );
     }
 }
